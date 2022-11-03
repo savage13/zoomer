@@ -52,7 +52,8 @@ try:
 except Exception as e:
     print("error reading image: ", e)
     sys.exit(1)
-image = image.crop(list(map(int,args.crop.split(','))))
+if args.crop:
+    image = image.crop(list(map(int,args.crop.split(','))))
 frames = []
 
 if os.path.exists(args.output):
